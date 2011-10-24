@@ -1,0 +1,20 @@
+--- opencore-aacdec/sample/aacNetPlayer.c.orig	2011-10-23 20:54:07.000000000 +0200
++++ opencore-aacdec/sample/aacNetPlayer.c	2011-10-23 21:23:05.034069509 +0200
+@@ -323,7 +323,7 @@
+ 	
+ #ifdef AAC_PLUS
+ 	fprintf(stderr, "[MAIN] AAC+ ENABLED\n");
+-    pExt->pOutputBuffer_plus = &iOutputBuf[2048];
++    pExt->pOutputBuffer_plus = &player->iOutputBuf[2048];
+ #else
+     pExt->pOutputBuffer_plus = NULL;
+ #endif
+@@ -430,7 +430,7 @@
+ 	        		if (1 == aIsFirstBuffer) {
+     	    			fprintf(stderr, "[SUCCESS] downsampling stereo to mono\n");
+         			}
+-                	memcpy(&iOutputBuf[1024], &iOutputBuf[2048], (aOutputLength * 2));
++                	memcpy(&player->iOutputBuf[1024], &player->iOutputBuf[2048], (aOutputLength * 2));
+             	}
+         	}
+ #endif
